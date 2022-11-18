@@ -1,6 +1,9 @@
 import myAxios from "@/plugins/myAxios";
 import {getCurrentUserState, setCurrentUserState} from "@/states/user";
 
+/**
+ * 获取用户信息
+ */
 export const getCurrentUser = async () => {
     // const currentUser = getCurrentUserState();
     // if (currentUser) {

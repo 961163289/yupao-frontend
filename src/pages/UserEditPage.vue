@@ -32,7 +32,11 @@ const editUser = ref({
   currentValue: route.query.currentValue
 })
 
+// 不可以写在外面, 否则页面不显示内容, 还没有报错信息
+// const currentUser = await getCurrentUser();
+
 const onSubmit = async () => {
+  //异步方法必须添加 await 才可以拿到数据, 否则拿到的是 promise 对象
   const currentUser = await getCurrentUser();
 
   if (!currentUser){
