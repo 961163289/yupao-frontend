@@ -1,36 +1,16 @@
 <template>
   <template v-if="user">
-    <van-cell title="昵称" is-link to="/user/edit" :value="user.username"
-              @click="toEdit('username', '昵称', user.username)"/>
-    <van-cell title="账号" :value="user.userAccount"/>
-    <van-cell title="头像" is-link to="/user/edit">
-      <img style="height: 48px" :src="user.avatarUrl"/>
-    </van-cell>
-    <van-cell title="性别" is-link :value="user.gender" @click="toEdit('gender', '性别', user.gender)"/>
-    <van-cell title="电话" is-link :value="user.phone" @click="toEdit('phone', '电话', user.phone)"/>
-    <van-cell title="邮箱" is-link to="/user/edit" :value="user.email" @click="toEdit('email', '邮箱', user.email)"/>
-    <van-cell title="星球编号" :value="user.planetCode"/>
-    <van-cell title="注册时间" :value="user.createTime"/>
+    <van-cell title="当前用户" :value="user?.username" />
+    <van-cell title="修改信息" is-link to="/user/update" />
+    <van-cell title="我创建的队伍" is-link to="/user/team/create" />
+    <van-cell title="我加入的队伍" is-link to="/user/team/join" />
   </template>
 </template>
 
 <script setup lang="ts">
 import {useRouter} from "vue-router";
 import {onMounted, ref} from "vue";
-import {Toast} from "vant";
 import {getCurrentUser} from "@/services/user";
-
-// const user = {
-//   id: 1,
-//   username: '梓鹏',
-//   userAccount: 'ziPeng',
-//   avatarUrl: 'https://636f-codenav-8grj8px727565176-1256524210.tcb.qcloud.la/img/logo.png',
-//   gender: '男',
-//   phone: '13318030996',
-//   email: '961163289@qq.com',
-//   planetCode: '212515',
-//   createTime: new Date(),
-// }
 
 const user = ref();
 
